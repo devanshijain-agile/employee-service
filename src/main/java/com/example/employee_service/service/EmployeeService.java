@@ -1,5 +1,8 @@
 package com.example.employee_service.service;
 
+import com.example.employee_service.dto.DepartmentAvgSalaryResponse;
+import com.example.employee_service.dto.DepartmentCountResponse;
+import com.example.employee_service.dto.SkillCountResponse;
 import com.example.employee_service.model.Employee;
 import com.example.employee_service.repository.EmployeeRepository;
 import lombok.RequiredArgsConstructor;
@@ -63,4 +66,17 @@ public class EmployeeService {
     public List<Employee> getExperiencedEmployees(Integer years) {
         return repository.findByExperienceGreaterThan(years);
     }
+
+    public List<DepartmentCountResponse> countByDepartment() {
+        return repository.countByDepartment();
+    }
+
+    public List<DepartmentAvgSalaryResponse> avgSalaryByDepartment() {
+        return repository.avgSalaryByDepartment();
+    }
+
+    public List<SkillCountResponse> countBySkill() {
+        return repository.countBySkill();
+    }
+
 }

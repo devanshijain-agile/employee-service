@@ -1,6 +1,9 @@
 package com.example.employee_service.controller;
 
 
+import com.example.employee_service.dto.DepartmentAvgSalaryResponse;
+import com.example.employee_service.dto.DepartmentCountResponse;
+import com.example.employee_service.dto.SkillCountResponse;
 import com.example.employee_service.model.Employee;
 import com.example.employee_service.service.EmployeeService;
 import lombok.RequiredArgsConstructor;
@@ -61,4 +64,20 @@ public class EmployeeController {
     public List<Employee> getExperienced(@PathVariable Integer years) {
         return service.getExperiencedEmployees(years);
     }
+
+    @GetMapping("/stats/count-by-department")
+    public List<DepartmentCountResponse> countByDepartment() {
+        return service.countByDepartment();
+    }
+
+    @GetMapping("/stats/avg-salary")
+    public List<DepartmentAvgSalaryResponse> avgSalaryByDepartment() {
+        return service.avgSalaryByDepartment();
+    }
+
+    @GetMapping("/stats/skills")
+    public List<SkillCountResponse> countBySkill() {
+        return service.countBySkill();
+    }
+
 }
