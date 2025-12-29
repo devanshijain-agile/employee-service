@@ -3,6 +3,7 @@ package com.example.employee_service.model;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.CompoundIndex;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
@@ -18,6 +19,7 @@ public class Employee {
     private String name;
     private Integer age;
     private String department;
+    @Indexed
     private List<String> skills;
     private Double salary;
     private Integer experience;

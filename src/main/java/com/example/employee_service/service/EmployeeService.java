@@ -47,4 +47,20 @@ public class EmployeeService {
     public void delete(String id) {
         repository.deleteById(id);
     }
+
+    public List<Employee> getByDepartment(String department) {
+        return repository.findByDepartment(department);
+    }
+
+    public List<Employee> getBySkill(String skill) {
+        return repository.findBySkills(skill);
+    }
+
+    public List<Employee> getActiveEmployees() {
+        return repository.findByIsActiveTrue();
+    }
+
+    public List<Employee> getExperiencedEmployees(Integer years) {
+        return repository.findByExperienceGreaterThan(years);
+    }
 }

@@ -41,4 +41,24 @@ public class EmployeeController {
     public void delete(@PathVariable String id) {
         service.delete(id);
     }
+
+    @GetMapping("/department/{department}")
+    public List<Employee> getByDepartment(@PathVariable String department) {
+        return service.getByDepartment(department);
+    }
+
+    @GetMapping("/skill/{skill}")
+    public List<Employee> getBySkill(@PathVariable String skill) {
+        return service.getBySkill(skill);
+    }
+
+    @GetMapping("/active")
+    public List<Employee> getActiveEmployees() {
+        return service.getActiveEmployees();
+    }
+
+    @GetMapping("/experience/{years}")
+    public List<Employee> getExperienced(@PathVariable Integer years) {
+        return service.getExperiencedEmployees(years);
+    }
 }
